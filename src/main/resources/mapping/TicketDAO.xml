@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.book_management.mapper.TicketDAO">
+    <insert id="addTicket" parameterType="com.example.book_management.model.Ticket">
+        insert into ticket (user_id,ticket,expired_at) values (#{userId},#{ticket},#{expiredAt})
+    </insert>
+    <select id="selectByUserId" parameterType="Integer" resultType="com.example.book_management.model.Ticket">
+        select id,user_id,ticket,expired_at from ticket where id=#{uid}
+    </select>
+    <select id="selectByTicket" parameterType="String" resultType="com.example.book_management.model.Ticket">
+        select id,user_id,ticket,expired_at from ticket where ticket=#{t}
+    </select>
+    <delete id="deleteTicketById" parameterType="Integer">
+        delete from ticket where id=#{id}
+    </delete>
+    <delete id="deleteTicketByTicket" parameterType="String">
+        delete from ticket where ticker=#{t}
+    </delete>
+</mapper>

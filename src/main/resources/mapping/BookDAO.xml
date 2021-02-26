@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.book_management.mapper.BookDAO">
+    <select id="findAll" resultType="com.example.book_management.model.Book">
+        select id,status,name,author,price from book
+    </select>
+    <insert id="addBook" parameterType="com.example.book_management.model.Book">
+        insert into book (name,author,price) values (#{name},#{author},#{price})
+    </insert>
+    <update id="updateBook" parameterType="Integer">
+        update book set status=#{status} where id=#{id}
+    </update>
+</mapper>
